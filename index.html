@@ -1642,7 +1642,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              1/38
+              1/54
             </aside>
           </footer>
         </div>
@@ -1681,7 +1681,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              2/38
+              2/54
             </aside>
           </footer>
         </div>
@@ -1719,7 +1719,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              3/38
+              3/54
             </aside>
           </footer>
         </div>
@@ -1747,7 +1747,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              4/38
+              4/54
             </aside>
           </footer>
         </div>
@@ -1761,6 +1761,17 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             <header><h1>Installation</h1></header>
             
             
+            <section><ol>
+<li>Installer VMWare Player sur votre poste de travail
+<code>https://my.vmware.com/web/vmware/downloads</code></li>
+<li>Récupérer et décompresser la machine virtuelle
+<code>EliteAuto-v1</code></li>
+<li>Démarrer VMware Player</li>
+<li>Choisir "ouvrir une machine virtuelle"</li>
+<li>Sélectionner <code>EliteAuto-v1/EliteAuto.vmdk</code></li>
+<li>Choisir l'option correspondant à un déplacement de machine</li>
+</ol></section>
+            
           </div>
           <div class="presenter_notes">
             <header><h1>Notes</h1></header>
@@ -1775,7 +1786,49 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              5/38
+              5/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/01-vm.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Démarrage</h1></header>
+            
+            
+            <section><div class="highlight"><pre>Elite Auto Virtual Machine <span class="o">(</span>dev<span class="o">)</span>
+IP address  : XXX.XXX.XXX.XXX
+MAC address : XX:XX:XX:XX:XX:XX
+
+elite-vm login: _
+</pre></div>
+
+<p>Est-ce que ça marche ?</p>
+<ul>
+<li>http://XXX.XXX.XXX.XXX</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/01-vm.markdown">./slides/01-vm.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/54
             </aside>
           </footer>
         </div>
@@ -1789,6 +1842,14 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             <header><h1>Accès aux fichiers</h1></header>
             
             
+            <section><p>Le serveur partage un répertoire samba nommé web.</p>
+<ul>
+<li>\XXX.XXX.XXX.XXX\web</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul>
+<p>Monter directement web comme un lecteur réseau de votre machine pour faciliter son accès.</p></section>
+            
           </div>
           <div class="presenter_notes">
             <header><h1>Notes</h1></header>
@@ -1803,7 +1864,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              6/38
+              7/54
             </aside>
           </footer>
         </div>
@@ -1817,6 +1878,12 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             <header><h1>Configurer la bdd</h1></header>
             
             
+            <section><ul>
+<li>http://XXX.XXX.XXX.XXX/pma</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul></section>
+            
           </div>
           <div class="presenter_notes">
             <header><h1>Notes</h1></header>
@@ -1831,7 +1898,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              7/38
+              8/54
             </aside>
           </footer>
         </div>
@@ -1845,6 +1912,12 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             <header><h1>Shell intégré</h1></header>
             
             
+            <section><ul>
+<li>http://XXX.XXX.XXX.XXX/shell</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul></section>
+            
           </div>
           <div class="presenter_notes">
             <header><h1>Notes</h1></header>
@@ -1859,7 +1932,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              8/38
+              9/54
             </aside>
           </footer>
         </div>
@@ -1887,7 +1960,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              9/38
+              10/54
             </aside>
           </footer>
         </div>
@@ -1924,7 +1997,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              10/38
+              11/54
             </aside>
           </footer>
         </div>
@@ -1955,7 +2028,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              11/38
+              12/54
             </aside>
           </footer>
         </div>
@@ -1986,7 +2059,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              12/38
+              13/54
             </aside>
           </footer>
         </div>
@@ -2033,7 +2106,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              13/38
+              14/54
             </aside>
           </footer>
         </div>
@@ -2068,38 +2141,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              14/38
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: ./slides/02-pourquoi-sf2.markdown -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>Les versions</h1></header>
-            
-            
-            <section><p><img alt="" src="./images/release-process.jpg" /></p>
-<p><a href="http://symfony.com/doc/current/contributing/community/releases.html#long-term-support-releases">Détails sur symfony.com</a></p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="./slides/02-pourquoi-sf2.markdown">./slides/02-pourquoi-sf2.markdown</a>
-            </aside>
-            
-            <aside class="page_number">
-              15/38
+              15/54
             </aside>
           </footer>
         </div>
@@ -2127,7 +2169,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              16/38
+              16/54
             </aside>
           </footer>
         </div>
@@ -2142,7 +2184,8 @@ doctrine
             
             
             <section><h2>Cloner le projet git elitefo</h2>
-<div class="highlight"><pre><span class="nv">$ </span>git clone git@&lt;TODO&gt;:elitefo elitefo
+<div class="highlight"><pre><span class="nv">$ </span>mv docroot unused
+<span class="nv">$ </span>git clone git@elite-srv1.itnetwork.fr:eliteo docroot
 </pre></div>
 
 <h2>Basculer sur une branche formation</h2>
@@ -2165,7 +2208,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              17/38
+              17/54
             </aside>
           </footer>
         </div>
@@ -2204,7 +2247,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              18/38
+              18/54
             </aside>
           </footer>
         </div>
@@ -2245,7 +2288,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              19/38
+              19/54
             </aside>
           </footer>
         </div>
@@ -2284,7 +2327,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              20/38
+              20/54
             </aside>
           </footer>
         </div>
@@ -2322,7 +2365,7 @@ doctrine
             </aside>
             
             <aside class="page_number">
-              21/38
+              21/54
             </aside>
           </footer>
         </div>
@@ -2356,7 +2399,7 @@ Bundle namespace: Elite/FormationBundle
             </aside>
             
             <aside class="page_number">
-              22/38
+              22/54
             </aside>
           </footer>
         </div>
@@ -2401,7 +2444,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              23/38
+              23/54
             </aside>
           </footer>
         </div>
@@ -2443,7 +2486,39 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              24/38
+              24/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/03-start.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>les bundles</h1></header>
+            
+            
+            <section><h2>Ca marche ?</h2>
+<p>http://X.X.X.X/hello/world</p>
+<p>\o/</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/03-start.markdown">./slides/03-start.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/54
             </aside>
           </footer>
         </div>
@@ -2471,7 +2546,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              25/38
+              26/54
             </aside>
           </footer>
         </div>
@@ -2501,7 +2576,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              26/38
+              27/54
             </aside>
           </footer>
         </div>
@@ -2539,7 +2614,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              27/38
+              28/54
             </aside>
           </footer>
         </div>
@@ -2567,7 +2642,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              28/38
+              29/54
             </aside>
           </footer>
         </div>
@@ -2601,7 +2676,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              29/38
+              30/54
             </aside>
           </footer>
         </div>
@@ -2651,7 +2726,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              30/38
+              31/54
             </aside>
           </footer>
         </div>
@@ -2686,7 +2761,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              31/38
+              32/54
             </aside>
           </footer>
         </div>
@@ -2734,7 +2809,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              32/38
+              33/54
             </aside>
           </footer>
         </div>
@@ -2770,7 +2845,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              33/38
+              34/54
             </aside>
           </footer>
         </div>
@@ -2786,6 +2861,15 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             
             <section><p>Request permet de récupérer toutes les infos sur la demande de l'utilisateur.</p>
 <div class="highlight"><pre><span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">();</span>
+
+<span class="c1">//requete de type Ajax ?</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isXmlHttpRequest</span><span class="p">();</span>
+
+<span class="c1">//accès aux parametres get</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">query</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">);</span>
+
+<span class="c1">//accès aux parametres post</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">);</span>
 </pre></div>
 
 <p><a href="https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Request.php">Code source de Request</a></p></section>
@@ -2804,7 +2888,45 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              34/38
+              35/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/05-controller.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A vous de jouer</h1></header>
+            
+            
+            <section><ol>
+<li>Editez <code>DefaultController</code></li>
+<li>créez une nouvelle action <code>subscribeAction</code> avec la route <code>@Route("/subscribe")</code></li>
+<li><code>subscribeAction</code> doit retourner un json contenant les content-types acceptés par le client et son ip</li>
+<li><code>subscribeAction</code> doit aussi retourner le paramètre <code>country</code> passé en parametre si il existe, <code>france</code> par défaut.</li>
+<li>Remplacez la route de indexAction par <code>@Route("/test")</code></li>
+<li>Redirigez vers <code>subscribeAction</code> avec le parametre <code>country</code> à <code>japan</code></li>
+<li>Stockez <code>country</code> dans la session de l'utilisateur</li>
+</ol></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/05-controller.markdown">./slides/05-controller.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/54
             </aside>
           </footer>
         </div>
@@ -2832,7 +2954,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
             </aside>
             
             <aside class="page_number">
-              35/38
+              37/54
             </aside>
           </footer>
         </div>
@@ -2850,7 +2972,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
 <blockquote>
 <p>Le routing fait la jonction entre les URIs et les contrôleurs</p>
 </blockquote>
-<p>Dans symfony, chaque requêtes entrante est traitée par le FrontController.
+<p>Dans symfony, chaque requêtes entrante est traitée par le <code>FrontController</code>.
 A lui de la dispatcher auprès du bon contôleur en fonction de règles de configuration.</p></section>
             
           </div>
@@ -2867,7 +2989,7 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
             </aside>
             
             <aside class="page_number">
-              36/38
+              38/54
             </aside>
           </footer>
         </div>
@@ -2882,10 +3004,10 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
             
             
             <section><h2>Créer de belles urls</h2>
-<p>Remplacer</p>
+<p>Le routing permet de remplacer</p>
 <pre><code>/edit_post.php?post_id=12
 </code></pre>
-<p>Par</p>
+<p>par</p>
 <pre><code>/posts/edit/12
 </code></pre></section>
             
@@ -2903,7 +3025,7 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
             </aside>
             
             <aside class="page_number">
-              37/38
+              39/54
             </aside>
           </footer>
         </div>
@@ -2911,11 +3033,19 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       <!-- slide source: ./slides/06-routing.markdown -->
       <div class="slide-wrapper">
-        <div class="slide">
+        <div class="slide has_code">
           <div class="inner">
             
             <header><h1>Configuration du routage</h1></header>
             
+            
+            <section><p><code>app/config/routing.yml</code></p>
+<div class="highlight"><pre>nom_de_la_route
+    pattern:    /ma/route/<span class="o">{</span>parametre<span class="o">}</span>
+    default:    <span class="o">{</span> _controleur: EliteFormationBundle:Default:subscribe <span class="o">}</span>
+</pre></div>
+
+<p>Toutes les urls matchant <code>ma/route/*</code> seront renvoyées sur le contrôlleur <code>Default</code>, et l'acion <code>subscribe</code>.</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -2931,7 +3061,550 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
             </aside>
             
             <aside class="page_number">
-              38/38
+              40/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/06-routing.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Configuration du routage</h1></header>
+            
+            
+            <section><div class="highlight"><pre>nom_de_la_route
+    pattern:    /ma/route/<span class="o">{</span>parametre<span class="o">}</span>
+    default:
+        _controleur:    EliteFormationBundle:Default:subscribe
+        parametre:      valeurParDefaut
+    requirements:
+        parametre:  <span class="se">\w</span>+
+        _method:    GET
+        _format:    html|json
+</pre></div>
+
+<p><a href="http://symfony.com/fr/doc/current/book/routing.html#creer-des-routes">Détails sur les routes</a></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/06-routing.markdown">./slides/06-routing.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/06-routing.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Configuration via les annotations</h1></header>
+            
+            
+            <section><p>le bundle <code>SensioFrameworkExtraBundle</code> permet de décrire les routes directement dans le contrôleur à l'aide d'annotations.</p>
+<div class="highlight"><pre><span class="sd">/**</span>
+<span class="sd"> * @Route(&quot;/ma/route&quot;,</span>
+<span class="sd"> *    name=&quot;route_name&quot;,</span>
+<span class="sd"> *    defaults={&quot;parametre&quot; = 1},</span>
+<span class="sd"> *    requirements={&quot;parametre&quot; = &quot;\w+&quot;}</span>
+<span class="sd"> * )</span>
+<span class="sd"> */</span>
+</pre></div>
+
+<p><a href="http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/routing.html">Routes dans le  SensioFrameworkExtraBundle</a></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/06-routing.markdown">./slides/06-routing.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/06-routing.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A vous de jouer</h1></header>
+            
+            
+            <section><ol>
+<li>Ajouter le parametre <code>country</code> dans la route du <code>subscribeAction</code></li>
+<li><code>country</code>  doit être composé de lettre uniquement</li>
+<li>Permettre l'accès à <code>subscribe</code> uniquement en <code>GET</code></li>
+<li>Définir le pays par défaut dans le routing</li>
+<li>Définir le format <code>json</code> via le routing</li>
+</ol></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/06-routing.markdown">./slides/06-routing.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/06-routing.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Générer des routes</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="nv">$router</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;router&#39;</span><span class="p">);</span>
+<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span>
+    <span class="s1">&#39;route_name&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;france&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;json&#39;</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">//url absolue</span>
+<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$router</span><span class="o">-&gt;</span><span class="na">generate</span><span class="p">(</span>
+    <span class="s1">&#39;route_name&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;france&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;json&#39;</span>
+    <span class="p">),</span>
+    <span class="k">true</span>
+<span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/06-routing.markdown">./slides/06-routing.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/06-routing.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Debugger les routes</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="nv">$ </span>php app/console router:debug
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/06-routing.markdown">./slides/06-routing.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              45/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Vue &amp; Twig</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              46/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Rendre en template 1/2</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="nv">$content</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">renderView</span><span class="p">(</span>
+    <span class="s1">&#39;EliteFormationBundle:Default:subscribe.html.twig&#39;</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;country&#39;</span> <span class="o">=&gt;</span> <span class="nv">$country</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              47/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Rendre un template 2/2</h1></header>
+            
+            
+            <section><p><code>FrameworkExtraBundle</code> vient nous aider dans cette tâche en permettant d'utiliser les annotations dans le contrôleur.</p>
+<div class="highlight"><pre><span class="sd">/**</span>
+<span class="sd"> * @Template(&quot;EliteFormationBundle:Default:simple&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">sampleAction</span><span class="p">(</span> <span class="nv">$country</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;country&#39;</span> <span class="o">=</span> <span class="nv">$country</span> <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><a href="http://symfony.com/fr/doc/current/bundles/SensioFrameworkExtraBundle/annotations/view.html">Template dans FrameworkExtraBundle</a></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              48/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Twig dans sf2</h1></header>
+            
+            
+            <section><p>Les templates doivent être déposés dans <bundle>/Ressources/views pour ce qui correspond à chacun des bundles.</p>
+<p><code>app/Resources/views/</code> va contenir le template principal de l'application.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              49/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>L'héritage</h1></header>
+            
+            
+            <section><p><code>app/Ressouces/views/template.html.twig</code></p>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>{% block title %}Hello{% endblock %}<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        {% block menu %}
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;</span>Accueil<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>Inscription<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        {% endblock %}
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+            {% block content %}{% endblock %}
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              50/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>L'héritage</h1></header>
+            
+            
+            <section><p><code>src/[...]/Ressources/views/Default/subscribe.html.twig</code></p>
+<div class="highlight"><pre>{% extends &#39;::template.html.twig&#39; %}
+{% block title %}{{parent()}} - Inscription{% endblock %}
+{% block content %}Hello World!{% endblock %}
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              51/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Helpers</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="c">&lt;!-- inclusion de template --&gt;</span>
+{% include &#39;FooBundle:Bar:article.html.twig&#39; with {&#39;article&#39;: article} %}
+
+<span class="c">&lt;!-- rendre un contrôleur --&gt;</span>
+{% render &quot;FooBundle:Bar:lastArticles&quot; with {&#39;max&#39;: 3} %}
+
+<span class="c">&lt;!-- lien --&gt;</span>
+{{ path(&#39;route_name&#39;, {&#39;foo&#39; : &#39;bar&#39;}) }}
+
+<span class="c">&lt;!-- lien vers un fichier --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;{{ asset(&#39;images/logo.png&#39;) }}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ asset(&#39;css/main.css&#39;) }}&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- debugger --&gt;</span>
+{{ dump(country) }}
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              52/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>A vous de jouer</h1></header>
+            
+            
+            <section><ol>
+<li>créez un template principal</li>
+<li>créez un template pour <code>subscribe</code> qui affiche l'ip et le pays du client</li>
+<li>modifiez le contrôleur pour renvoyer le template avec les bonnes variables</li>
+<li>inclure dans votre template principal un css</li>
+<li>ajouter jquery dans le template principal</li>
+<li>inclure dans la vue <code>subscribe</code> un javascript et un css propre à cette vue</li>
+<li>inclure un sous-template</li>
+</ol></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/54
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: ./slides/07-view.markdown -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Twig</h1></header>
+            
+            
+            <section><p><a href="http://twig.sensiolabs.org/">http://twig.sensiolabs.org/</a></p>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>montrer un exemple de css</li>
+<li>creer un helper twig</li>
+<li>parler des assets ?</li>
+<li>surcharge des bundles</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="./slides/07-view.markdown">./slides/07-view.markdown</a>
+            </aside>
+            
+            <aside class="page_number">
+              54/54
             </aside>
           </footer>
         </div>
@@ -2977,25 +3650,25 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       
       <tr id="toc-row-6">
-        <th><a href="#slide6">Accès aux fichiers</a></th>
+        <th><a href="#slide6">Démarrage</a></th>
         <td><a href="#slide6">6</a></td>
       </tr>
       
       
       <tr id="toc-row-7">
-        <th><a href="#slide7">Configurer la bdd</a></th>
+        <th><a href="#slide7">Accès aux fichiers</a></th>
         <td><a href="#slide7">7</a></td>
       </tr>
       
       
       <tr id="toc-row-8">
-        <th><a href="#slide8">Shell intégré</a></th>
+        <th><a href="#slide8">Configurer la bdd</a></th>
         <td><a href="#slide8">8</a></td>
       </tr>
       
       
       <tr id="toc-row-9">
-        <th><a href="#slide9">Pourquoi Symfony ?</a></th>
+        <th><a href="#slide9">Shell intégré</a></th>
         <td><a href="#slide9">9</a></td>
       </tr>
       
@@ -3007,7 +3680,7 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Outils</a></th>
+        <th><a href="#slide11">Pourquoi Symfony ?</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
@@ -3025,13 +3698,13 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">Détails sur le framework</a></th>
+        <th><a href="#slide14">Outils</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Les versions</a></th>
+        <th><a href="#slide15">Détails sur le framework</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
@@ -3091,25 +3764,25 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       
       <tr id="toc-row-25">
-        <th><a href="#slide25">Séparation des responsabilités</a></th>
+        <th><a href="#slide25">les bundles</a></th>
         <td><a href="#slide25">25</a></td>
       </tr>
       
       
       <tr id="toc-row-26">
-        <th><a href="#slide26">Le modèle MVC</a></th>
+        <th><a href="#slide26">Séparation des responsabilités</a></th>
         <td><a href="#slide26">26</a></td>
       </tr>
       
       
       <tr id="toc-row-27">
-        <th><a href="#slide27">Pour résumer</a></th>
+        <th><a href="#slide27">Le modèle MVC</a></th>
         <td><a href="#slide27">27</a></td>
       </tr>
       
       
       <tr id="toc-row-28">
-        <th><a href="#slide28">Le contrôleur</a></th>
+        <th><a href="#slide28">Pour résumer</a></th>
         <td><a href="#slide28">28</a></td>
       </tr>
       
@@ -3121,43 +3794,43 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       
       <tr id="toc-row-30">
-        <th><a href="#slide30">Créer un contrôleur</a></th>
+        <th><a href="#slide30">Le contrôleur</a></th>
         <td><a href="#slide30">30</a></td>
       </tr>
       
       
       <tr id="toc-row-31">
-        <th><a href="#slide31">Contrôleur</a></th>
+        <th><a href="#slide31">Créer un contrôleur</a></th>
         <td><a href="#slide31">31</a></td>
       </tr>
       
       
       <tr id="toc-row-32">
-        <th><a href="#slide32">Contrôleur : tâches utiles</a></th>
+        <th><a href="#slide32">Contrôleur</a></th>
         <td><a href="#slide32">32</a></td>
       </tr>
       
       
       <tr id="toc-row-33">
-        <th><a href="#slide33">Response</a></th>
+        <th><a href="#slide33">Contrôleur : tâches utiles</a></th>
         <td><a href="#slide33">33</a></td>
       </tr>
       
       
       <tr id="toc-row-34">
-        <th><a href="#slide34">Request</a></th>
+        <th><a href="#slide34">Response</a></th>
         <td><a href="#slide34">34</a></td>
       </tr>
       
       
       <tr id="toc-row-35">
-        <th><a href="#slide35">Routing</a></th>
+        <th><a href="#slide35">Request</a></th>
         <td><a href="#slide35">35</a></td>
       </tr>
       
       
       <tr id="toc-row-36">
-        <th><a href="#slide36">Routing</a></th>
+        <th><a href="#slide36">A vous de jouer</a></th>
         <td><a href="#slide36">36</a></td>
       </tr>
       
@@ -3169,8 +3842,104 @@ A lui de la dispatcher auprès du bon contôleur en fonction de règles de confi
       
       
       <tr id="toc-row-38">
-        <th><a href="#slide38">Configuration du routage</a></th>
+        <th><a href="#slide38">Routing</a></th>
         <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">Routing</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">Configuration du routage</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">Configuration du routage</a></th>
+        <td><a href="#slide41">41</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-42">
+        <th><a href="#slide42">Configuration via les annotations</a></th>
+        <td><a href="#slide42">42</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-43">
+        <th><a href="#slide43">A vous de jouer</a></th>
+        <td><a href="#slide43">43</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44">Générer des routes</a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-45">
+        <th><a href="#slide45">Debugger les routes</a></th>
+        <td><a href="#slide45">45</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-46">
+        <th><a href="#slide46">Vue &amp; Twig</a></th>
+        <td><a href="#slide46">46</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-47">
+        <th><a href="#slide47">Rendre en template 1/2</a></th>
+        <td><a href="#slide47">47</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-48">
+        <th><a href="#slide48">Rendre un template 2/2</a></th>
+        <td><a href="#slide48">48</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-49">
+        <th><a href="#slide49">Twig dans sf2</a></th>
+        <td><a href="#slide49">49</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-50">
+        <th><a href="#slide50">L'héritage</a></th>
+        <td><a href="#slide50">50</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-51">
+        <th><a href="#slide51">L'héritage</a></th>
+        <td><a href="#slide51">51</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-52">
+        <th><a href="#slide52">Helpers</a></th>
+        <td><a href="#slide52">52</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-53">
+        <th><a href="#slide53">A vous de jouer</a></th>
+        <td><a href="#slide53">53</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-54">
+        <th><a href="#slide54">Twig</a></th>
+        <td><a href="#slide54">54</a></td>
       </tr>
       
       
