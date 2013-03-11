@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1 id="formation-à-symfony-2">Formation à Symfony 2</h1>
+<p>P. Tachoire et R. Hanna</p>
+<p>ITNetwork, 6 Janvier 2013</p>
+<p>.fx: titleslide</p>
+<hr />
+<h1 id="sommaire-12">Sommaire 1/2</h1>
+<ul>
+<li>Pourquoi Symfony ?</li>
+<li>Prise en main de la machine virtuelle</li>
+<li>Démarrage avec symfony</li>
+<li>Principe de la séparation des responsabilités</li>
+<li>Controlleur</li>
+<li>Routage</li>
+<li>Vue &amp; Twig</li>
+<li>Modèle &amp; Doctrine</li>
+</ul>
+<hr />
+<h1 id="sommaire-22">Sommaire 2/2</h1>
+<ul>
+<li>Formulaires</li>
+<li>Validation</li>
+<li>Gestion des dépendances</li>
+<li>Service Container</li>
+<li>Tests</li>
+<li>Sécurité</li>
+<li>Console</li>
+</ul>
+<h1 id="prise-en-main-de-la-machine-virtuelle">Prise en main de la machine virtuelle</h1>
+<hr />
+<h1 id="installation">Installation</h1>
+<ol style="list-style-type: decimal">
+<li>Installer VMWare Player sur votre poste de travail <code>https://my.vmware.com/web/vmware/downloads</code></li>
+<li>Récupérer et décompresser la machine virtuelle <code>EliteAuto-v1</code></li>
+<li>Démarrer VMware Player</li>
+<li>Choisir &quot;ouvrir une machine virtuelle&quot;</li>
+<li>Sélectionner <code>EliteAuto-v1/EliteAuto.vmdk</code></li>
+<li>Choisir l'option correspondant à une copie de machine</li>
+</ol>
+<hr />
+<h1 id="démarrage">Démarrage</h1>
+<pre><code>!bash
+Elite Auto Virtual Machine (dev)
+IP address  : XXX.XXX.XXX.XXX
+MAC address : XX:XX:XX:XX:XX:XX
+
+elite-vm login: _</code></pre>
+<p>Est-ce que ça marche ?</p>
+<ul>
+<li>http://XXX.XXX.XXX.XXX</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul>
+<hr />
+<h1 id="accès-aux-fichiers">Accès aux fichiers</h1>
+<p>Le serveur partage un répertoire samba nommé web.</p>
+<ul>
+<li>\\XXX.XXX.XXX.XXX</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul>
+<p>Monter directement web comme un lecteur réseau de votre machine pour faciliter son accès.</p>
+<hr />
+<h1 id="configurer-la-bdd">Configurer la bdd</h1>
+<ul>
+<li>http://XXX.XXX.XXX.XXX/pma/</li>
+<li>login : eliteinfo</li>
+<li>passwd : eliteinfo</li>
+</ul>
+<hr />
+<h1 id="shell-intégré">Shell intégré</h1>
+<p>Il est possible de se connecter au serveur via la console de la machine virtuelle.</p>
+<ul>
+<li>login : apache</li>
+<li>passwd : eliteinfo</li>
+</ul>
+<h1 id="pourquoi-symfony">Pourquoi Symfony ?</h1>
+<hr />
+<h1 id="pourquoi-symfony-1">Pourquoi Symfony ?</h1>
+<ul>
+<li>Framework open source</li>
+<li>Structure le code</li>
+<li>Outils pour faciliter la vie</li>
+<li>Simplifie la réutilisation de code et le découplage</li>
+<li>Facilite les tests</li>
+<li>Bénéficie d'une importante commuauté</li>
+</ul>
+<hr />
+<h1 id="outils">Outils</h1>
+<h2 id="la-debug-bar">La debug bar</h2>
+<div class="figure">
+<img src="./images/web_debug_toolbar.png" /><p class="caption"></p>
+</div>
+<hr />
+<h1 id="outils-1">Outils</h1>
+<h2 id="le-profiler">Le profiler</h2>
+<div class="figure">
+<img src="./images/profiler.png" /><p class="caption"></p>
+</div>
+<hr />
+<h1 id="outils-2">Outils</h1>
+<h2 id="des-commandes">Des commandes !</h2>
+<pre><code>!bash
+$ php app/console
+assets
+    assets:install                        Installs bundles web assets under a public web directory
+cache
+    cache:clear                           Clears the cache
+    cache:warmup                          Warms up an empty cache
+config
+    config:dump-reference                 Dumps default configuration for an extension
+container
+    container:debug                       Displays current services for an application
+doctrine
+    doctrine:cache:clear-metadata         Clears all metadata cache for an entity manager
+    doctrine:cache:clear-query            Clears all query cache for an entity manager
+    doctrine:cache:clear-result           Clears result cache for an entity manager
+[...]</code></pre>
+<hr />
+<h1 id="détails-sur-le-framework">Détails sur le framework</h1>
+<ul>
+<li>Développé avec php 5.3.3</li>
+<li>Centré sur HTTP</li>
+<li>Basé sur des composants découplés</li>
+<li>Un planning de versions défini</li>
+</ul>
+<h1 id="démarrage-avec-symfony">Démarrage avec Symfony</h1>
+<hr />
+<h1 id="git">Git</h1>
+<h2 id="cloner-le-projet-git-elitefo">Cloner le projet git elitefo</h2>
+<pre><code>!bash
+$ mv docroot unused
+$ git clone git@192.168.78.8:elitefo docroot</code></pre>
+<h2 id="basculer-sur-une-branche-formation">Basculer sur une branche formation</h2>
+<pre><code>!bash
+$ git checkout formation
+$ git checkout -b formation-start</code></pre>
+<hr />
+<h1 id="préparer-le-projet">Préparer le projet</h1>
+<h2 id="récupérer-les-dépendances">Récupérer les dépendances</h2>
+<p>Accès internet requis!</p>
+<pre><code>!bash
+$ php composer.phar install</code></pre>
+<h3 id="préparer-et-vider-le-cache">Préparer et vider le cache</h3>
+<pre><code>!bash
+$ php app/console cache:warmup
+$ php app/console cache:clear</code></pre>
+<hr />
+<h1 id="la-structure">La structure</h1>
+<pre><code>!bash
+elitefo/
+├ app/
+│ ├ config/
+│ ├ Ressources/
+│ ├ AppKernel.php
+│ [...]
+├ deploy/
+├ src/
+├ vendor/
+└ web/</code></pre>
+<hr />
+<h1 id="la-structure-1">La structure</h1>
+<ul>
+<li><code>app/</code> contient toute la configuration de l'application</li>
+<li><code>app/config/</code> contient les fichiers de configuration</li>
+<li><code>app/Resources/</code> contient le template général</li>
+<li><code>deploy/</code> contient les fichier relatifs au déploiement de l'application</li>
+<li><code>src/</code> contient les bundles (php, templates, etc) nécessaires à l'application</li>
+<li><code>vendor/</code> contient des librairies/bundles tierces (dont symfony lui-même)</li>
+<li><code>web/</code> contient les fichiers statiques (img, js, css, ...)</li>
+</ul>
+<p><a href="http://symfony.com/fr/doc/current/book/page_creation.html#la-structure-des-repertoires">Plus d'infos sur la structure sf2</a></p>
+<hr />
+<h1 id="les-bundles">Les bundles</h1>
+<blockquote>
+<p>Tout est bundle dans sf2</p>
+</blockquote>
+<ul>
+<li>permet de grouper par fonctionnalité</li>
+<li>réutilisation de bundle entre les projets</li>
+<li>utilisation de bundles tiers (<a href="http://knpbundles.com/">KnpBundles</a>)</li>
+</ul>
+<p><a href="http://symfony.com/fr/doc/current/book/page_creation.html#le-systeme-de-bundles">Plus d'infos sur les bundles</a></p>
+<hr />
+<h1 id="les-bundles-1">Les bundles</h1>
+<h2 id="créer-un-bundle">Créer un bundle</h2>
+<pre><code>!bash
+$ php app/console generate:bundle
+Bundle namespace: Elite/FormationBundle</code></pre>
+<hr />
+<h1 id="les-bundles-2">Les bundles</h1>
+<pre><code>!bash
+$ git status
+# On branch puppet-master
+# Changes not staged for commit:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+#
+#   modified:   app/AppKernel.php
+#   modified:   app/config/routing.yml
+#
+# Untracked files:
+#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+#
+#   src/Elite/FormationBundle/
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
+<hr />
+<h1 id="les-bundles-3">Les bundles</h1>
+<h2 id="activation-du-bundle">Activation du bundle</h2>
+<p><code>app/AppKernel.php</code></p>
+<pre><code>!php
+[...]
+public function registerBundles()
+{
+    $bundles = array(
+        [...]
+        new Elite\FormationBundle\EliteFormationBundle(),
+    );
+
+[...]</code></pre>
+<hr />
+<h1 id="les-bundles-4">les bundles</h1>
+<h2 id="ca-marche">Ca marche ?</h2>
+<p>http://X.X.X.X/app_dev.php/hello/world</p>
+<p>/</p>
+<h1 id="séparation-des-responsabilités">Séparation des responsabilités</h1>
+<hr />
+<h1 id="le-modèle-mvc">Le modèle MVC</h1>
+<div class="figure">
+<img src="./images/mvc_seq.png" /><p class="caption"></p>
+</div>
+<hr />
+<h1 id="pour-résumer">Pour résumer</h1>
+<ul>
+    <li>
+<strong>Modèle</strong> : vos classes php + Doctrine
+</li>
+    <li>
+<strong>Vue</strong> : Twig
+</li>
+    <li>
+<strong>Controleur</strong> : classes Symfony Controller
+</li>
+</ul>
+
+<p class="info">
+    
+<ul>
+<li>le routing !
+</p>
+</li>
+</ul>
+<h1 id="le-contrôleur">Le contrôleur</h1>
+<hr />
+<h1 id="le-contrôleur-1">Le contrôleur</h1>
+<ol style="list-style-type: decimal">
+<li>reçoit la requete du client (via un objet Request)</li>
+<li>traite la demande</li>
+<li>retourne une réponse (via un objet Response)</li>
+</ol>
+<hr />
+<h1 id="créer-un-contrôleur">Créer un contrôleur</h1>
+<pre><code>!php
+&lt;?php
+
+namespace Elite\FormationBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+class DefaultController extends Controller
+{
+    /**
+    * @Route(&quot;/hello/{name}&quot;)
+    * @Template()
+    */
+    public function indexAction($name)
+    {
+        return array(&#39;name&#39; =&gt; $name);
+    }
+}</code></pre>
+<hr />
+<h1 id="contrôleur">Contrôleur</h1>
+<p>Utilisation d'annotations pour définir la route et le template (merci <a href="http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html">SensioFrameworkExtraBundle</a>)</p>
+<p>Etendre <code>Symfony\Bundle\[...]\Controller</code> permet d'avoir accès à des raccourcis utiles</p>
+<p><code>getRequest()</code>, <code>getUser()</code>, <code>createNotFoundException()</code>, <code>redirect()</code>, <code>generateUrl()</code>, ...</p>
+<p>Mais c'est facultatif !</p>
+<p><a href="https://github.com/symfony/symfony/blob/master/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">Code source de Controller</a></p>
+<hr />
+<h1 id="contrôleur-tâches-utiles">Contrôleur : tâches utiles</h1>
+<pre><code>!php
+//rediriger vers une page
+return $this-&gt;redirect($this-&gt;generateUrl(&#39;homepage&#39;));
+
+//forwarder vers un autre controleur
+return $this-&gt;forward(&#39;EliteFormationBundle:Default:demo&#39;);
+
+//retourner un 404
+return $this-&gt;createNotFoundException(&#39;Voiture non-trouvée&#39;);
+
+//retourner une 500
+throw \Exception(&#39;Erreur serveur&#39;);
+
+//acceder à la session
+$session = $this-&gt;getRequest()-&gt;getSession();
+$session-&gt;set(&#39;foo&#39;, &#39;bar&#39;);
+[...]
+$foo = $session-&gt;get(&#39;foo&#39;, &#39;valeur par defaut&#39;);</code></pre>
+<hr />
+<h1 id="response">Response</h1>
+<p>Vous pouvez directement créer un objet Response retourné par l'action.</p>
+<pre><code>!php
+//retourner directement du json
+$response = new Response(json_encode(array(&#39;name&#39; =&gt; $name)));
+$response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;application/json&#39;);</code></pre>
+<p><a href="https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Response.php">Code source de Response</a></p>
+<hr />
+<h1 id="request">Request</h1>
+<p>Request permet de récupérer toutes les infos sur la demande de l'utilisateur.</p>
+<pre><code>!php
+$request = $this-&gt;getRequest();
+
+//requete de type Ajax ?
+$request-&gt;isXmlHttpRequest();
+
+//accès aux parametres get
+$request-&gt;query-&gt;get(&#39;page&#39;);
+
+//accès aux parametres post
+$request-&gt;request-&gt;get(&#39;page&#39;);</code></pre>
+<p><a href="https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Request.php">Code source de Request</a></p>
+<hr />
+<h1 id="a-vous-de-jouer">A vous de jouer</h1>
+<ol style="list-style-type: decimal">
+<li>Editez <code>DefaultController</code></li>
+<li>créez une nouvelle action <code>subscribeAction</code> avec la route <code>@Route(&quot;/subscribe&quot;)</code></li>
+<li><code>subscribeAction</code> doit retourner un json contenant les content-types acceptés par le client et son ip</li>
+<li><code>subscribeAction</code> doit aussi retourner le paramètre <code>country</code> passé en parametre si il existe, <code>france</code> par défaut.</li>
+<li>Remplacez la route de indexAction par <code>@Route(&quot;/test&quot;)</code></li>
+<li>Redirigez vers <code>subscribeAction</code> avec le parametre <code>country</code> à <code>japan</code></li>
+<li>Stockez <code>country</code> dans la session de l'utilisateur</li>
+</ol>
+<h1 id="routing">Routing</h1>
+<hr />
+<h1 id="routing-1">Routing</h1>
+<h2 id="séparer-lurl-du-contrôleur-executé.">Séparer l'url du contrôleur executé.</h2>
+<blockquote>
+<p>Le routing fait la jonction entre les URIs et les contrôleurs</p>
+</blockquote>
+<p>Dans symfony, chaque requêtes entrante est traitée par le <code>FrontController</code>. A lui de la dispatcher auprès du bon contôleur en fonction de règles de configuration.</p>
+<hr />
+<h1 id="routing-2">Routing</h1>
+<h2 id="créer-de-belles-urls">Créer de belles urls</h2>
+<p>Le routing permet de remplacer</p>
+<pre><code>/edit_post.php?post_id=12</code></pre>
+<p>par</p>
+<pre><code>/posts/edit/12</code></pre>
+<hr />
+<h1 id="configuration-du-routage">Configuration du routage</h1>
+<p><code>app/config/routing.yml</code></p>
+<pre><code>!bash
+nom_de_la_route
+    pattern:    /ma/route/{parametre}
+    default:    { _controleur: EliteFormationBundle:Default:subscribe }</code></pre>
+<p>Toutes les urls matchant <code>ma/route/*</code> seront renvoyées sur le contrôlleur <code>Default</code>, et l'acion <code>subscribe</code>.</p>
+<hr />
+<h1 id="configuration-du-routage-1">Configuration du routage</h1>
+<pre><code>!bash
+nom_de_la_route
+    pattern:    /ma/route/{parametre}
+    default:
+        _controleur:    EliteFormationBundle:Default:subscribe
+        parametre:      valeurParDefaut
+    requirements:
+        parametre:  \w+
+        _method:    GET
+        _format:    html|json</code></pre>
+<p><a href="http://symfony.com/fr/doc/current/book/routing.html#creer-des-routes">Détails sur les routes</a></p>
+<hr />
+<h1 id="configuration-via-les-annotations">Configuration via les annotations</h1>
+<p>le bundle <code>SensioFrameworkExtraBundle</code> permet de décrire les routes directement dans le contrôleur à l'aide d'annotations.</p>
+<pre><code>!php
+/**
+ * @Route(&quot;/ma/route&quot;,
+ *    name=&quot;route_name&quot;,
+ *    defaults={&quot;parametre&quot; = 1},
+ *    requirements={&quot;parametre&quot; = &quot;\w+&quot;}
+ * )
+ */</code></pre>
+<p><a href="http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/routing.html">Routes dans le SensioFrameworkExtraBundle</a></p>
+<hr />
+<h1 id="a-vous-de-jouer-1">A vous de jouer</h1>
+<ol style="list-style-type: decimal">
+<li>Ajouter le parametre <code>country</code> dans la route du <code>subscribeAction</code></li>
+<li><code>country</code> doit être composé de lettre uniquement</li>
+<li>Permettre l'accès à <code>subscribe</code> uniquement en <code>GET</code></li>
+<li>Définir le pays par défaut dans le routing</li>
+<li>Définir le format <code>json</code> via le routing</li>
+</ol>
+<hr />
+<h1 id="générer-des-routes">Générer des routes</h1>
+<pre><code>!php
+$router = $this-&gt;get(&#39;router&#39;);
+$url = $router-&gt;generate(
+    &#39;route_name&#39;,
+    array(
+        &#39;country&#39; =&gt; &#39;france&#39;,
+        &#39;_format&#39; =&gt; &#39;json&#39;
+    )
+);
+
+//url absolue
+$url = $router-&gt;generate(
+    &#39;route_name&#39;,
+    array(
+        &#39;country&#39; =&gt; &#39;france&#39;,
+        &#39;_format&#39; =&gt; &#39;json&#39;
+    ),
+    true
+);</code></pre>
+<hr />
+<h1 id="debugger-les-routes">Debugger les routes</h1>
+<pre><code>!bash
+$ php app/console router:debug</code></pre>
+<h1 id="vue-twig">Vue &amp; Twig</h1>
+<hr />
+<h1 id="rendre-en-template-12">Rendre en template 1/2</h1>
+<pre><code>!php
+$content = $this-&gt;renderView(
+    &#39;EliteFormationBundle:Default:subscribe.html.twig&#39;,
+    array(
+        &#39;country&#39; =&gt; $country
+    )
+);
+
+return new Response($content);</code></pre>
+<hr />
+<h1 id="rendre-un-template-22">Rendre un template 2/2</h1>
+<p><code>FrameworkExtraBundle</code> vient nous aider dans cette tâche en permettant d'utiliser les annotations dans le contrôleur.</p>
+<pre><code>!php
+/**
+ * @Template(&quot;EliteFormationBundle:Default:simple&quot;)
+ */
+public function sampleAction( $country ) {
+    [...]
+
+    return array(&#39;country&#39; =&gt; $country );
+}</code></pre>
+<p><a href="http://symfony.com/fr/doc/current/bundles/SensioFrameworkExtraBundle/annotations/view.html">Template dans FrameworkExtraBundle</a></p>
+<hr />
+<h1 id="twig-dans-sf2">Twig dans sf2</h1>
+<p>Les templates doivent être déposés dans <bundle>/Ressources/views pour ce qui correspond à chacun des bundles.</p>
+<p><code>app/Resources/views/</code> va contenir le template principal de l'application.</p>
+<hr />
+<h1 id="lhéritage">L'héritage</h1>
+<p><code>app/Ressouces/views/template.html.twig</code></p>
+<pre><code>!html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;{% block title %}Hello{% endblock %}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block menu %}
+            &lt;ul&gt;
+                &lt;li&gt;Accueil&lt;/li&gt;
+                &lt;li&gt;Inscription&lt;/li&gt;
+            &lt;/ul&gt;
+        {% endblock %}
+        &lt;div id=&quot;content&quot;&gt;
+            {% block content %}{% endblock %}
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<hr />
+<h1 id="lhéritage-1">L'héritage</h1>
+<p><code>src/[...]/Ressources/views/Default/subscribe.html.twig</code></p>
+<pre><code>!html
+{% extends &#39;::template.html.twig&#39; %}
+{% block title %}{{parent()}} - Inscription{% endblock %}
+{% block content %}Hello World!{% endblock %}</code></pre>
+<hr />
+<h1 id="helpers">Helpers</h1>
+<pre><code>!html
+&lt;!-- inclusion de template --&gt;
+{% include &#39;FooBundle:Bar:article.html.twig&#39; with {&#39;article&#39;: article} %}
+
+&lt;!-- rendre un contrôleur --&gt;
+{% render &quot;FooBundle:Bar:lastArticles&quot; with {&#39;max&#39;: 3} %}
+
+&lt;!-- lien --&gt;
+{{ path(&#39;route_name&#39;, {&#39;foo&#39; : &#39;bar&#39;}) }}
+
+&lt;!-- lien vers un fichier --&gt;
+&lt;img src=&quot;{{ asset(&#39;images/logo.png&#39;) }}&quot;/&gt;
+&lt;link href=&quot;{{ asset(&#39;css/main.css&#39;) }}&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;!-- debugger --&gt;
+{{ dump(country) }}</code></pre>
+<hr />
+<h1 id="a-vous-de-jouer-2">A vous de jouer</h1>
+<ol style="list-style-type: decimal">
+<li>créez un template principal</li>
+<li>créez un template pour <code>subscribe</code> qui affiche l'ip et le pays du client</li>
+<li>modifiez le contrôleur pour renvoyer le template avec les bonnes variables</li>
+<li>inclure dans votre template principal un css</li>
+<li>inclure un sous-template</li>
+</ol>
+<hr />
+<h1 id="utiles">Utiles</h1>
+<p>Dans tous vos templates vous avez accès à :</p>
+<ul>
+<li><code>app.security</code></li>
+<li><code>app.user</code></li>
+<li><code>app.request</code></li>
+<li><code>app.session</code></li>
+<li><code>app.environment</code></li>
+<li><code>app.debug</code></li>
+</ul>
+<hr />
+<h1 id="ajouter-une-variable-globale">Ajouter une variable globale</h1>
+<pre><code>!bash
+# app/config/config.yml
+twig:
+    # ...
+    globals:
+        ga_tracking: UA-xxxxx-x</code></pre>
+<p>Puis dans les template</p>
+<pre><code>!html
+&lt;p&gt;The google tracking code is: {{ ga_tracking }} &lt;/p&gt;</code></pre>
+<hr />
+<h1 id="twig">Twig</h1>
+<p><a href="http://twig.sensiolabs.org/">http://twig.sensiolabs.org/</a></p>
+<h1 id="presenter-notes">Presenter Notes</h1>
+<ul>
+<li>montrer un exemple de css</li>
+<li>creer un helper twig</li>
+<li>parler des assets ?</li>
+<li>surcharge des bundles</li>
+</ul>
+<h1 id="modèle-doctrine">Modèle &amp; Doctrine</h1>
+<hr />
+<h1 id="doctrine">Doctrine</h1>
+<p>Doctrine permet une abstraction de la base de données en introduisant un mapping objet-relationnel (ORM). Il implémente aussi un language de requête particulier nommé DQL.</p>
+<p><a href="http://www.doctrine-project.org/projects/orm.html">http://www.doctrine-project.org/projects/orm.html</a></p>
+<hr />
+<h1 id="mapping">Mapping</h1>
+<p>Création d'une entité.</p>
+<pre><code>!php
+namespace Elite\FormationBundle\Entity
+
+class Book
+{
+    protected $name;
+}</code></pre>
+<p>Maintenant on peut ajouter le mapping avec Doctrine à l'aide des annotations</p>
+<hr />
+<h1 id="mapping-1">Mapping</h1>
+<pre><code>!php
+namespace Elite\FormationBundle\Entity
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name=&quot;book&quot;)
+ */
+class Book
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type=&quot;Integer&quot;)
+     * @ORM\GeneratedValue(strategy=&quot;AUTO&quot;)
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type=&quot;string&quot;, length=100)
+     */
+    protected $name;
+}</code></pre>
+<hr />
+<h1 id="console">Console</h1>
+<p>Doctrine propose un certain nombre de commandes pratiques pour faciliter son usage avec sf2.</p>
+<pre><code>!bash
+$ php app/console |grep doctrine
+[...]
+    doctrine:generate:crud                Generates a CRUD based on a Doctrine entity
+    doctrine:generate:entities            Generates entity classes and method stubs from your mapping information
+    doctrine:generate:entity              Generates a new Doctrine entity inside a bundle
+    doctrine:generate:form                Generates a form type class based on a Doctrine entity
+[...]
+    doctrine:schema:create                Executes (or dumps) the SQL needed to generate the database schema
+    doctrine:schema:drop                  Executes (or dumps) the SQL needed to drop the current database schema
+    doctrine:schema:update                Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata</code></pre>
+<hr />
+<h1 id="créer-un-objet-dans-la-base">Créer un objet dans la base</h1>
+<p>Dans un contrôleur</p>
+<pre><code>!php
+public function createAction()
+{
+    $book = new Book();
+    $book-&gt;setName(&#39;Le livre de la jungle&#39;);
+
+    $em = $this-&gt;getDoctrine()-&gt;getManager();
+    $em-&gt;persist($book);
+    $em-&gt;flush();
+
+}</code></pre>
+<hr />
+<h1 id="récupérer-un-objet">Récupérer un objet</h1>
+<p>on utilise les objets  <code>Repository</code></p>
+<pre><code>!php
+public function showAction( $id )
+{
+    $em = $this-&gt;getDoctrine()-&gt;getManager();
+    $book = $em
+        -&gt;getRepository(&#39;EliteFormationBundle:Book&#39;)
+        -&gt;find($id);
+
+    if( !$book )
+    {
+        $this-&gt;createNotFoundException(sprintf(&#39;Book %d not found&#39;, $id ));
+    }
+
+    //update
+    $book-&gt;setName(&#39;Le livre de la jungle 2&#39;);
+    $em-&gt;persist($book);
+    $em-&gt;flush();
+
+    //delete
+    $em-&gt;remove($book);
+    $em-&gt;flush();
+
+    return array( &#39;book&#39; =&gt; $book );
+}</code></pre>
+<hr />
+<h1 id="repository">Repository</h1>
+<pre><code>!php
+$repository-&gt;find(1); //find by id
+$repository-&gt;findByName($name); //find collection
+$repository-&gt;findOneByName($name); //find object
+$repository-&gt;findAll();
+$repository-&gt;findBy(array(&#39;name&#39; =&gt; $name, &#39;foo&#39; =&gt; &#39;bar&#39; ));</code></pre>
+<hr />
+<h1 id="a-vous-de-jouer-3">A vous de jouer</h1>
+<ol style="list-style-type: decimal">
+<li>configurer Mysql et votre application</li>
+<li>créer l'entité <code>Book</code> avec 2 attributs (<code>id</code>, <code>name</code> )</li>
+<li>générer les getter et les setter</li>
+<li>générer le schema de votre base de données</li>
+<li>ajouter l'attribut <code>description</code>, générer les getter/setter</li>
+<li>migrer la base de données</li>
+<li>créer un contrôleur qui ajoute 10 livres</li>
+<li>créer un contrôleur qui liste tous les livres</li>
+</ol>
+<hr />
+<h1 id="querybuilder">QueryBuilder</h1>
+<pre><code>!php
+$repository-&gt;createQueryBuilder(&#39;b&#39;)
+    -&gt;where(&#39;b.name LIKE :name&#39;)
+    -&gt;orderBy(&#39;b.name ASC&#39;)
+    -&gt;setParameter(&#39;name&#39;, &#39;%jungle%&#39;)
+    -&gt;getQuery()
+    -&gt;execute();</code></pre>
+<p><a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/query-builder.html">Documentation de QueryBuilder</a></p>
+<hr />
+<h1 id="dql">DQL</h1>
+<pre><code>!php
+$em-&gt;createQuery(
+        &#39;SELECT b
+        FROM Book b
+        WHERE b.name
+        LIKE :name
+        ORDER BY b.name ASC&#39;
+    )
+    -&gt;setParameter(&#39;name&#39;, &#39;%jungle%&#39;
+    -&gt;execute();</code></pre>
+<p><a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html">Documentation de DQL</a></p>
+<hr />
+<h1 id="repository-1">Repository</h1>
+<p>Chaque entité a une classe <code>Repository</code>. Elle permet de réutiliser des requètes.</p>
+<pre><code>!php
+//Entity/Book.php
+/**
+ * @ORM\Entity(repositoryClass=&quot;Elite\FormationBundle\Repository\BookRepository&quot;)
+ * @ORM\Table(name=&quot;book&quot;)
+ */
+class Book
+{
+[...]</code></pre>
+<hr />
+<h1 id="repository-2">Repository</h1>
+<p>Puis créer le <code>Repository</code></p>
+<pre><code>!php
+//Repository/BookRepository.php
+&lt;?php
+namespace Elite\FormationBundle\Repository;
+
+use Doctrine\ORM\EntityRepository;
+
+class BookRepository extends EntityRepository
+{
+    [...]
+}</code></pre>
+<hr />
+<h1 id="association-onetomany">Association OneToMany</h1>
+<pre><code>!php
+namespace Elite\FormationBundle\Entity
+
+use Doctrine\Common\Collections\ArrayCollection;
+
+class Category {
+    [..]
+    /**
+     * @ORM\OneToMany(targetEntity=&quot;Book&quot;, mappedBy=&quot;category&quot;)
+     */
+    protected $books;
+
+    public function __construct()
+    {
+        $this-&gt;books = new ArrayCollection();
+    }
+}</code></pre>
+<hr />
+<h1 id="assocation-manytoone">Assocation ManyToOne</h1>
+<pre><code>!php
+[...]
+class Book {
+    [...]
+    /**
+     * @ORM\ManyToOne(targetEntity=&quot;Category&quot;, inversedBy=&quot;books&quot;)
+     * @ORM\JoinColumn(name=&quot;category_id&quot;, referencedColumnName=&quot;id&quot;)
+     */
+    protected $category;
+    [...]</code></pre>
+<hr />
+<h1 id="sauvegarder-les-objets-associés">Sauvegarder les objets associés</h1>
+<pre><code>!php
+$category = new Category();
+$category-&gt;setName(&#39;Aventure&#39;);
+
+$book = new Book();
+$book-&gt;setName(&#39;le livre de la jungle&#39;);
+$book-&gt;setCategory($category);
+
+$em-&gt;persist($book);
+$em-&gt;flush();</code></pre>
+<hr />
+<h1 id="lazy-load">Lazy Load</h1>
+<pre><code>!php
+$book = $bookRepository-&gt;find(1);
+
+$book-&gt;getCategory()-&gt;getName();
+
+//two queries done</code></pre>
+<hr />
+<h1 id="jointures">Jointures</h1>
+<pre><code>!php
+//si vous creez une methode specifique dans votre repository
+$book = bookRepository-&gt;findOneJoinedByCategory(1);
+
+$book-&gt;getCategory()-&gt;getName();
+
+//only one query
+
+//with DQL
+$book = $em-&gt;createQuery(&#39;
+        SELECT b, c
+        FROM Book b
+        LEFT JOIN p.category c
+        WHERE b.id = :id&#39;
+    )
+    -&gt;setParameter(&#39;id&#39;, 1)
+    -&gt;getSingleResult();</code></pre>
+<hr />
+<h1 id="associations-many-to-many"> Associations many-to-many</h1>
+<ul>
+<li>Many-To-Many unidirectionnelle</li>
+<li>Many-To-Many bidirectionnelle</li>
+<li>Many-To-Many avec des attributs</li>
+</ul>
+<p><a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html">Documentation sur les associations</a></p>
+<hr />
+<h1 id="a-vous-de-jouer-4">A vous de jouer</h1>
+<ol style="list-style-type: decimal">
+<li>Créez une entité <code>Author</code> avec les attributs <code>name</code> et <code>birthday</code></li>
+<li>Créez une relation de type Many-To-One avec <code>Books</code></li>
+<li>Mettez à jour la base de données</li>
+<li>Modifiez le contrôleur de creation de livre pour créer des auteurs et leur affecter plusieurs livres</li>
+<li>Afficher dans la vue les auteurs et leur livres respectifs</li>
+<li>Changez la requete pour joindre les auteurs avec les livres directement</li>
+<li>ajoutez un parametre pour filtrer les auteurs par la premiere lettre de leur nom</li>
+</ol>
+<hr />
+<h1 id="callbacks">Callbacks</h1>
+<p>Doctrine permet d'appeler des callbacks dans votre entité en fonction de son cycle de vie. Ainsi il est possible d'appeler une methode spécifique avant une creation, une mise à jour, une suppression de votre entité.</p>
+<pre><code>!php
+/**
+ * @ORM\Entity
+ * @ORM\Table(name=&quot;book&quot;);
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Book
+{
+    [...]
+    /**
+     * @ORM\PrePersist
+     */
+    public function onCreate() {
+        [...]
+    }</code></pre>
+<hr />
+<h1 id="callback">Callback</h1>
+<p>Il existe les callback suivants : <code>PreRemove</code>, <code>PostRemove</code>, <code>PrePersist</code>, <code>PostPersist</code>, <code>PreUpdate</code>, <code>PostUpdate</code>, <code>PostLoad</code>, <code>LoadClassMetadata</code>.</p>
+<p>Doctrine permet aussi à des objets extérieurs d'écouter ces évenèments sur les entités. Attention cependant au temps d'exécution de ces méthodes !</p>
+<p><a href="http://symfony.com/fr/doc/current/cookbook/doctrine/event_listeners_subscribers.html">Documentation des listeners</a></p>
+<hr />
+<h1 id="a-vous-de-jouer-5">A vous de jouer</h1>
+<ol style="list-style-type: decimal">
+<li>Ajouter les champs <code>createdAt</code> et <code>updatedAt</code> sur <code>Book</code></li>
+<li>Utilisez les callback pour les mettre à jour</li>
+</ol>
+<h1 id="les-formulaires">Les formulaires</h1>
+<hr />
+<h1 id="les-formulaires-1">Les formulaires</h1>
+<p>Les formulaires symfony se basent sur vos classes modèles php.</p>
+<p>Ces formulaires vont utiliser les getter et les setter pour inter-agir avec.</p>
+<hr />
+<h1 id="exemple-basique">Exemple basique</h1>
+<pre><code>!php
+[...]
+public function newAction() {
+    $book = new Book();
+
+    $form = $this-&gt;createFormBuilder($book)
+        -&gt;add(&#39;name&#39;, &#39;text&#39;)
+        -&gt;getForm();
+
+    return array( &#39;form&#39; =&gt; $form-&gt;createView() );
+}</code></pre>
+<p>Puis dans le template</p>
+<pre><code>!html
+&lt;form action=&quot;{{ path(&#39;task_new&#39;) }}&quot;
+        method=&quot;post&quot; {{ form_enctype(form) }}&gt;
+    {{ form_widget(form) }}
+    &lt;input type=&quot;submit&quot; /&gt;
+&lt;/form&gt;</code></pre>
+<hr />
+<h1 id="envoi-du-formulaire">Envoi du formulaire</h1>
+<pre><code>!php
+$form-&gt;bind($request);
+
+if ($form-&gt;isValid()) {
+    // effectuez quelques actions, comme sauvegarder la tâche dans
+    // la base de données
+    return $this-&gt;redirect($this-&gt;generateUrl(&#39;book_list&#39;));
+}</code></pre>
+<table>
+<col width="4%" />
+<thead>
+<tr class="header">
+<th align="left"># Types de champs <a href="http://symfony.com/fr/doc/current/book/forms.html#types-de-champ-integres">Tous les types de champs de Symfony</a> --- # Les classes de formulaires Pour réutiliser facilement un formulaire, il est possible de créer des classe de formulaire. Ces classes sont suffixées par <code>Type</code>. Doctrine permet de générer automatiquement des <code>Type</code> pour nos entités. !bash php app/console doctrine:generate:form EliteFormationBundle:Book --- # Utiliser une classe de formulaire !php $form = $this-&gt;createForm(new BookType(), $book); --- # Champ non-mappé Parfois il est nécessaire de créer des champs dans un formulaire qui ne sont pas mappés avec l'objet modèle. L'option <code>mapped</code> permet de contrôler celà. !php $builder-&gt;add('comment', 'text', array('mapped' =&gt; false)); Puis la valeur du champ est accessible dans le contôleur. !php $form-&gt;get('comment')-&gt;getData(); --- #A vous de jouer 1. Générer le <code>Type</code> pour l'entité <code>Book</code> 2. Le modifier pour ne conserver que le nom, la description et l'auteur 3. écrire les controleurs pour ajouter un livre 4. écrire les vues correspondantes 5. Ajouter un champs non-mappé d'acceptation de conditions générales --- # Rendu du formulaire Rendre ligne par ligne !html</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"># Rendu du formulaire</td>
+</tr>
+<tr class="even">
+<td align="left">Rendre champ par champ</td>
+</tr>
+<tr class="odd">
+<td align="left">!html {{ form_errors(form) }}</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">{{ form_rest(form) }}</td>
+</tr>
+</tbody>
+</table>
+<h1 id="formulairee-imbriqués">Formulairee imbriqués</h1>
+<p>Il est possible d'imbriquer les formulaires simplement.</p>
+<pre><code>!php
+$builder-&gt;add(&#39;author&#39;, new AuthorType());
+
+[...]
+$resolver-&gt;setDefaults(array(
+    &#39;data_class&#39; =&gt; &#39;Elite\FormationBundle\Entity\Book&#39;,
+    &#39;cascade_validation&#39; =&gt; true,
+));</code></pre>
+<hr />
+<h1 id="création-dynamique-de-collection">Création dynamique de collection</h1>
+<p>Symfony propose une recette pour <a href="http://symfony.com/fr/doc/current/cookbook/form/form_collections.html">imbriquer une collection de formulaires</a>.</p>
+<hr />
+<h1 id="créer-un-type-de-champ-personnalisé">Créer un type de champ personnalisé</h1>
+<p>Symfony propose une recette pour créer un <a href="http://symfony.com/fr/doc/current/cookbook/form/create_custom_field_type.html">type de champ personnalisé</a>.</p>
+<h1 id="validation">Validation</h1>
+<hr />
+<h1 id="validation-des-données">Validation des données</h1>
+<pre><code>!php
+use Symfony\Component\Validator\Constraints as Assert;
+[...]
+    /**
+    * @ORM\Column(type=&quot;string&quot;, length=100);
+    * @Assert\NotNull()
+    * @Assert\NotBlank()
+    */
+    protected $name;
+
+    /**
+    * @ORM\Column(type=&quot;string&quot;);
+    * @Assert\NotBlank()
+    */
+    protected $description;
+
+    /**
+    * @ORM\ManyToOne(targetEntity=&quot;Author&quot;, inversedBy=&quot;books&quot;)
+    * @ORM\JoinColumn(name=&quot;author_id&quot;, referencedColumnName=&quot;id&quot;)
+    * @Assert\Type(type=&quot;Elite\FormationBundle\Entity\Author&quot;)
+    */
+protected $author;
+[...]</code></pre>
+<hr />
+<h1 id="validation-par-groupe">Validation par groupe</h1>
+<p>Il est possible de définir la validation des données par groupe.</p>
+<p>Dans ce cas, il est nécessaire de sécifier le groupe de validation utilisé par le formulaire.</p>
+<pre><code>!php
+$form = $this-&gt;createFormBuilder($book, array(
+    &#39;validation_groups&#39; =&gt; array(&#39;validation&#39;),
+))-&gt;add(...);</code></pre>
+<hr />
+</body>
+</html>
+</div>
+</body>
+</html>
